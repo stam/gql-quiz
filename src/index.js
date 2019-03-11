@@ -15,14 +15,32 @@ const GraphQL = require('graphql');
 var schema = GraphQL.buildSchema(`
   type Query {
     hello: String
-    foo: String
+    user(name: String!): User
+    users: [User!]
+  }
+
+  type User {
+    name: String!
+    userAgent: String!
   }
 `);
 
 // The root provides a resolver function for each API endpoint
 var root = {
   hello: () => 'Hello world!',
-  foo: () => 'bar',
+  user: (args) => {
+    console.log('FIRST', a);
+    return {
+      name: 'Henk',
+      userAgent: 'Bllaaaaa',
+    }
+  },
+  users: () => {
+    return [{
+      name: 'Henk',
+      userAgent: 'Bllaaaaa',
+    }]
+  }
 };
 
 var app = express();
