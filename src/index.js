@@ -12,6 +12,7 @@ const graphqlHTTP = require('express-graphql');
 const GraphQL = require('graphql');
 
 const repository = require('./repository');
+const { User, Site, Request } = require('./models');
 
 
 // Construct a schema, using GraphQL schema language
@@ -30,6 +31,7 @@ var schema = GraphQL.buildSchema(`
     name: String!
     device: String!
     resolution: String!
+    mostVisitedSite: Site
     browser: String!
   }
 
@@ -41,8 +43,8 @@ var schema = GraphQL.buildSchema(`
   }
 
   type Site {
-    name: String!
-    url: String!
+    name: String
+    url: String
   }
 
   input FilterUser {
@@ -53,8 +55,8 @@ var schema = GraphQL.buildSchema(`
 // The root provides a resolver function for each API endpoint
 var root = {
   hello: () => 'Hello world!',
-  user: (args) => repository.user.find(args),
-  users: ({ filter }) => repository.user.filter(filter),
+  user: (args) => new User(repository.user.find(args)),
+  users: ({ filter }) => repository.user.filter(filter).map(user => new User(user)),
   site: (args) => {
     console.log('resolve site', args)
     return repository.site.find(args)

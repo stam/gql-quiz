@@ -8,6 +8,38 @@
     "url": "opengroup.org"
   },
   {
+    "name": "YouTube",
+    "url": "youtube.com"
+  },
+  {
+    "name": "Twitch",
+    "url": "twitch.tv"
+  },
+  {
+    "name": "Reddit",
+    "url": "reddit.com"
+  },
+  {
+    "name": "NOS",
+    "url": "nos.nl"
+  },
+  {
+    "name": "Tweakers",
+    "url": "tweakers.net"
+  },
+  {
+    "name": "NU",
+    "url": "nu.nl"
+  },
+  {
+    "name": "Ars technica",
+    "url": "arstechnica.com"
+  },
+  {
+    "name": "Hacker news",
+    "url": "news.ycombinator.com"
+  },
+  {
     "name": "Stack overflow",
     "url": "stackoverflow.com"
   }
