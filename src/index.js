@@ -32,6 +32,7 @@ var schema = GraphQL.buildSchema(`
     device: String!
     resolution: String!
     mostVisitedSite: Site
+    requests: [Request]
     browser: String!
   }
 
@@ -45,6 +46,7 @@ var schema = GraphQL.buildSchema(`
   type Site {
     name: String
     url: String
+    requests: [Request]
   }
 
   input FilterUser {

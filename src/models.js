@@ -10,11 +10,21 @@ class User {
     const site = repository.site.find({ name: this.mostVisitedSiteName });
     return new Site(site)
   }
+
+  requests() {
+    const reqs = repository.request.filter({ user: this.name});
+    return reqs.map(data => new Request(data));
+  }
 }
 
 class Site {
   constructor(args) {
     Object.assign(this, args);
+  }
+
+  requests() {
+    const reqs = repository.request.filter({ site: this.name});
+    return reqs.map(data => new Request(data));
   }
 }
 
