@@ -1,15 +1,9 @@
 const lodash = require('lodash');
 
-const collection = [
-  {
-    name: 'Henk',
-    userAgent: 'Blaaaaa',
-  },
-  {
-    name: 'Piet',
-    userAgent: 'Piet',
-  }
-];
+const users = require('./data/users.json');
+const requests = require('./data/requests.json');
+const sites = require('./data/sites.json');
+
 
 class Repository {
   constructor(collection) {
@@ -17,16 +11,16 @@ class Repository {
   }
 
   find(query) {
-    return lodash.find(collection, model => lodash.isMatch(model, query))
+    return lodash.find(this.collection, model => lodash.isMatch(model, query))
   }
 
   filter(query) {
-    // if (lodash.isEmpty(query)) {
-    //   return
-    // }
-    console.log('filter', query);
-    return lodash.filter(collection, model => lodash.isMatch(model, query))
+    return lodash.filter(this.collection, model => lodash.isMatch(model, query))
   }
 }
 
-module.exports = Repository;
+module.exports = {
+  user: new Repository(users),
+  request: new Repository(requests),
+  site: new Repository(sites),
+};

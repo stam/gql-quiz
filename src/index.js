@@ -10,7 +10,9 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const GraphQL = require('graphql');
-const Repository = require('./Repository');
+
+const repository = require('./repository');
+
 
 // Construct a schema, using GraphQL schema language
 var schema = GraphQL.buildSchema(`
@@ -18,6 +20,10 @@ var schema = GraphQL.buildSchema(`
     hello: String
     user(name: String!): User
     users(filter: FilterUser): [User!]
+    site(name: String!): Site
+    sites: [Site!]
+    request: Request
+    requests: [Request!]
   }
 
   type User {
@@ -25,19 +31,42 @@ var schema = GraphQL.buildSchema(`
     userAgent: String!
   }
 
+  type Request {
+    user: User!
+    site: Site!
+    pathName: String!
+    date: String!
+  }
+
+  type Site {
+    name: String!
+    url: String!
+  }
+
   input FilterUser {
     name: String
     userAgent: String
   }
 `);
-
-const userRepository = new Repository();
-
 // The root provides a resolver function for each API endpoint
 var root = {
   hello: () => 'Hello world!',
-  user: (args) => userRepository.find(args),
-  users: ({ filter }) => userRepository.filter(filter),
+  user: (args) => repository.user.find(args),
+  users: ({ filter }) => repository.user.filter(filter),
+  site: (args) => {
+    console.log('resolve site', args)
+    return repository.site.find(args)
+  },
+  sites: ({ filter }) => {
+    console.log('resolve SITES');
+    return repository.site.filter(filter);
+  },
+  request: (args) => {
+    return repository.request.find(args)
+  },
+  requests: ({ filter },) => {
+    return repository.request.filter(filter)
+  }
 };
 
 var app = express();
