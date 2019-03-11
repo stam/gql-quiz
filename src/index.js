@@ -10,10 +10,10 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const GraphQL = require('graphql');
+const depthLimit = require('graphql-depth-limit');
 
 const repository = require('./repository');
 const { User, Site, Request } = require('./models');
-
 
 // Construct a schema, using GraphQL schema language
 var schema = GraphQL.buildSchema(`
@@ -56,20 +56,26 @@ var schema = GraphQL.buildSchema(`
 // The root provides a resolver function for each API endpoint
 var root = {
   hello: () => 'Hello world!',
-  user: (args) => new User(repository.user.find(args)),
+  user: args => new User(repository.user.find(args)),
   users: ({ filter }) => repository.user.filter(filter).map(user => new User(user)),
-  site: (args) => new Site(repository.site.find(args)),
+  site: args => new Site(repository.site.find(args)),
   sites: ({ filter }) => repository.site.filter(filter).map(site => new Site(site)),
-  request: (args) => new Request(repository.request.find(args)),
-  requests: ({ filter }) => repository.request.filter(filter).map(request => new Request(request))
+  request: args => new Request(repository.request.find(args)),
+  requests: ({ filter }) => repository.request.filter(filter).map(request => new Request(request)),
 };
 
 var app = express();
-app.use('/', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
+app.use(
+  '/',
+  graphqlHTTP((req, res) => ({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+    validationRules: [
+      depthLimit(4),
+    ]
+  })),
+);
 app.listen(4000);
 
 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
