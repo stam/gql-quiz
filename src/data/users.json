@@ -1,10 +1,56 @@
 [
   {
+    "name": "Alex",
+    "device": "Lenovo Thinkpad",
+    "resolution": "1920x1080",
+    "browser": "Internet Explorer"
+  },
+  {
+    "name": "Kees",
+    "device": "Macbook Pro",
+    "resolution": "2880x1800",
+    "browser": "Firefox"
+  },
+  {
     "name": "Henk",
-    "userAgent": "Blaaaaa"
+    "device": "Asus Zenbook",
+    "resolution": "1920x1080",
+    "browser": "Chrome"
   },
   {
     "name": "Piet",
-    "userAgent": "Piet"
+    "device": "Asus Zenbook",
+    "resolution": "1920x1080",
+    "browser": "Chrome"
+  },
+  {
+    "name": "Marcel",
+    "device": "Lenovo Thinkpad X220",
+    "resolution": "800x600",
+    "browser": "curl"
+  },
+  {
+    "name": "Karel",
+    "device": "Asus Zenbook",
+    "resolution": "1920x1080",
+    "browser": "Chrome"
+  },
+  {
+    "name": "Henk",
+    "device": "Asus Zenbook",
+    "resolution": "1920x1080",
+    "browser": "Chrome"
+  },
+  {
+    "name": "Jasper",
+    "device": "Macbook Pro",
+    "resolution": "2880x1800",
+    "browser": "Chrome"
+  },
+  {
+    "name": "Bastien",
+    "device": "Macbook Pro",
+    "resolution": "2880x1800",
+    "browser": "Safari"
   }
 ]

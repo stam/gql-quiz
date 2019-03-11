@@ -28,7 +28,9 @@ var schema = GraphQL.buildSchema(`
 
   type User {
     name: String!
-    userAgent: String!
+    device: String!
+    resolution: String!
+    browser: String!
   }
 
   type Request {
@@ -45,7 +47,7 @@ var schema = GraphQL.buildSchema(`
 
   input FilterUser {
     name: String
-    userAgent: String
+    browser: String
   }
 `);
 // The root provides a resolver function for each API endpoint
