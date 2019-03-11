@@ -32,7 +32,7 @@
     "device": "Lenovo Thinkpad X220",
     "resolution": "800x600",
     "browser": "curl",
-    "mostVisitedSite": "Github"
+    "mostVisitedSite": "GitHub"
   },
   {
     "name": "Karel",
@@ -47,7 +47,7 @@
     "device": "Macbook Pro",
     "resolution": "2880x1800",
     "browser": "Chrome",
-    "mostVisitedSite": "Github"
+    "mostVisitedSite": "GitHub"
   },
   {
     "name": "Bastien",

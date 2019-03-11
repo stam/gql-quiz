@@ -52,10 +52,10 @@ users.forEach(user => {
 
   } else if (user.name === 'Jasper') {
     createRequests(20, user.name, siteNames);
-    createRequests(30, user.name, ['Github'])
+    createRequests(30, user.name, ['GitHub'])
   } else if (user.name === 'Marcel') {
     createRequests(1, user.name, ['Hacker news']);
-    createRequests(2, user.name, ['Github']);
+    createRequests(2, user.name, ['GitHub']);
   } else {
     const randomSites = _.sampleSize(siteNames, 3);
     createRequests(10, user.name, randomSites);
