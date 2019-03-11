@@ -4,10 +4,6 @@
     "url": "google.com"
   },
   {
-    "name": "TOGAF",
-    "url": "opengroup.org"
-  },
-  {
     "name": "YouTube",
     "url": "youtube.com"
   },
@@ -20,12 +16,12 @@
     "url": "reddit.com"
   },
   {
-    "name": "NOS",
-    "url": "nos.nl"
-  },
-  {
     "name": "Tweakers",
     "url": "tweakers.net"
+  },
+  {
+    "name": "NOS",
+    "url": "nos.nl"
   },
   {
     "name": "NU",
@@ -40,7 +36,15 @@
     "url": "news.ycombinator.com"
   },
   {
+    "name": "TOGAF",
+    "url": "opengroup.org"
+  },
+  {
     "name": "Stack overflow",
     "url": "stackoverflow.com"
+  },
+  {
+    "name": "GitHub",
+    "url": "github.com"
   }
 ]

@@ -39,7 +39,6 @@ var schema = GraphQL.buildSchema(`
   type Request {
     user: User!
     site: Site!
-    pathName: String
     date: String!
   }
 
