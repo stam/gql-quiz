@@ -1,4 +1,4 @@
-const lodash = require('lodash');
+const _ = require('lodash');
 
 const users = require('./data/users.json');
 const requests = require('./data/requests.json');
@@ -11,11 +11,11 @@ class Repository {
   }
 
   find(query) {
-    return lodash.find(this.collection, model => lodash.isMatch(model, query))
+    return _.find(this.collection, model => _.isMatch(model, query))
   }
 
   filter(query) {
-    return lodash.filter(this.collection, model => lodash.isMatch(model, query))
+    return _.filter(this.collection, model => _.isMatch(model, query))
   }
 }
 
