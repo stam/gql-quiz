@@ -24,6 +24,16 @@ class Request {
     this.siteName = site;
     Object.assign(this, args);
   }
+
+  user() {
+    const user = repository.user.find({ name: this.userName });
+    return new User(user)
+  }
+
+  site() {
+    const site = repository.site.find({ name: this.siteName });
+    return new Site(site)
+  }
 }
 
 module.exports = {

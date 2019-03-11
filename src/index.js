@@ -38,7 +38,7 @@ var schema = GraphQL.buildSchema(`
   type Request {
     user: User!
     site: Site!
-    pathName: String!
+    pathName: String
     date: String!
   }
 
@@ -57,20 +57,10 @@ var root = {
   hello: () => 'Hello world!',
   user: (args) => new User(repository.user.find(args)),
   users: ({ filter }) => repository.user.filter(filter).map(user => new User(user)),
-  site: (args) => {
-    console.log('resolve site', args)
-    return repository.site.find(args)
-  },
-  sites: ({ filter }) => {
-    console.log('resolve SITES');
-    return repository.site.filter(filter);
-  },
-  request: (args) => {
-    return repository.request.find(args)
-  },
-  requests: ({ filter },) => {
-    return repository.request.filter(filter)
-  }
+  site: (args) => new Site(repository.site.find(args)),
+  sites: ({ filter }) => repository.site.filter(filter).map(site => new Site(site)),
+  request: (args) => new Request(repository.request.find(args)),
+  requests: ({ filter }) => repository.request.filter(filter).map(request => new Request(request))
 };
 
 var app = express();
