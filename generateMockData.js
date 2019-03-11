@@ -22,6 +22,11 @@ function createRequest(userName, siteSample) {
   return request;
 }
 
+function updateMostFrequent(userName, value) {
+  const index = _.findIndex(users, user => user.name === userName);
+  _.set(users, [index, 'mostVisitedSite'], value);
+}
+
 function createRequests(count, userName, siteSample) {
   const newRequests = [];
   for (let i=0; i < count; i++) {
@@ -37,6 +42,7 @@ function createRequests(count, userName, siteSample) {
   .maxBy('[1]'));
 
   output = output.concat(newRequests)
+  updateMostFrequent(userName, mostFrequent);
 }
 
 users.forEach(user => {
@@ -48,8 +54,8 @@ users.forEach(user => {
     createRequests(20, user.name, siteNames);
     createRequests(30, user.name, ['Github'])
   } else if (user.name === 'Marcel') {
-    createRequests(2, user.name, ['Github']);
     createRequests(1, user.name, ['Hacker news']);
+    createRequests(2, user.name, ['Github']);
   } else {
     const randomSites = _.sampleSize(siteNames, 3);
     createRequests(10, user.name, randomSites);
@@ -57,16 +63,18 @@ users.forEach(user => {
 })
 
 
-const targetPath = path.join(__dirname, 'src', 'data', 'tmp.json');
+const targetPath = path.join(__dirname, 'src', 'data', 'requests.json');
+const targetUserPath = path.join(__dirname, 'src', 'data', 'users.json');
+
+
 fs.writeFile(targetPath, JSON.stringify(output), (err) => {
-  console.log('err', err);
+  if (!err) {
+    console.log('Wrote requests data!');
+  }
 });
 
-// console.log(sites)
-
-// Read users,
-// Read
-
-// Generate requests,
-
-// Fill in mostVisitedSite for each user
+fs.writeFile(targetUserPath, JSON.stringify(users), (err) => {
+  if (!err) {
+    console.log('Wrote user data!');
+  }
+});

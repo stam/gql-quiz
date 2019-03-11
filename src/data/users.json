@@ -10,48 +10,50 @@
     "name": "Kees",
     "device": "Macbook Pro",
     "resolution": "2880x1800",
-    "browser": "Firefox"
+    "browser": "Firefox",
+    "mostVisitedSite": "Reddit"
   },
   {
     "name": "Henk",
     "device": "Asus Zenbook",
     "resolution": "1920x1080",
-    "browser": "Chrome"
+    "browser": "Chrome",
+    "mostVisitedSite": "GitHub"
   },
   {
     "name": "Piet",
     "device": "Asus Zenbook",
     "resolution": "1920x1080",
-    "browser": "Chrome"
+    "browser": "Chrome",
+    "mostVisitedSite": "Google"
   },
   {
     "name": "Marcel",
     "device": "Lenovo Thinkpad X220",
     "resolution": "800x600",
-    "browser": "curl"
+    "browser": "curl",
+    "mostVisitedSite": "Github"
   },
   {
     "name": "Karel",
     "device": "Asus Zenbook",
     "resolution": "1920x1080",
-    "browser": "Chrome"
+    "browser": "Chrome",
+    "mostVisitedSite": "Stack overflow"
   },
-  {
-    "name": "Henk",
-    "device": "Asus Zenbook",
-    "resolution": "1920x1080",
-    "browser": "Chrome"
-  },
+  { "name": "Henk", "device": "Asus Zenbook", "resolution": "1920x1080", "browser": "Chrome" },
   {
     "name": "Jasper",
     "device": "Macbook Pro",
     "resolution": "2880x1800",
-    "browser": "Chrome"
+    "browser": "Chrome",
+    "mostVisitedSite": "Github"
   },
   {
     "name": "Bastien",
     "device": "Macbook Pro",
     "resolution": "2880x1800",
-    "browser": "Safari"
+    "browser": "Safari",
+    "mostVisitedSite": "TOGAF"
   }
 ]
